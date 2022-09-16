@@ -34,6 +34,7 @@ public class MemberService {
         */
 
         //코드를 더 간단하게 아래와 같이 표현 가능. 반환이 optional이기 때문에 바로 ifPresent가 들어갈 수 있다. 
+
         validateDuplicationMember(member);
         memberRepository.save(member);
         return member.getId();

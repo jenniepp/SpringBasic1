@@ -1,7 +1,9 @@
-package com.study.spring.service;
+package com.study.spring;
 
+import com.study.spring.aop.TimeTraceAop;
 import com.study.spring.repository.JpaMemberRepository;
 import com.study.spring.repository.MemberRepository;
+import com.study.spring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,6 +40,11 @@ public class SpringConfig {
         return new MemberService(memberRepository);
     }
 
+
+    @Bean //만든 aop를 빈으로 등록하고 객체 사용하기
+    public TimeTraceAop timeTraceAop() {
+        return new TimeTraceAop();
+    }
 //    @Bean
 //    public MemberRepository memberRepository() {
        // return new MemoryMemberRepository();
